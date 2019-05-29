@@ -1,0 +1,10 @@
+com/devroods/processamentodeimagem/util/ConstApp.class
+com/devroods/processamentodeimagem/util/UtilsColor.class
+com/devroods/processamentodeimagem/module/main/MainController.class
+com/devroods/processamentodeimagem/module/main/operacoes/OperacoesController.class
+com/devroods/processamentodeimagem/model/Pixel.class
+com/devroods/processamentodeimagem/module/main/MainController$2.class
+com/devroods/processamentodeimagem/util/FiltersType.class
+com/devroods/processamentodeimagem/util/AppUtils.class
+com/devroods/processamentodeimagem/app/Start.class
+com/devroods/processamentodeimagem/module/main/MainController$1.class

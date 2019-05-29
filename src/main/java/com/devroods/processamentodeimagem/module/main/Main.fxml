@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.devroods.processamentodeimagem.module.main.MainController">
+   <children>
+      <MenuBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Arquivo">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#openFile" text="Open File" />
+                  <MenuItem mnemonicParsing="false" onAction="#openTransform" text="File para Transformações" />
+                  <MenuItem mnemonicParsing="false" onAction="#reset" text="Limpar" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Operações">
+              <items>
+                  <Menu mnemonicParsing="false" text="Aritméticas">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#sum" text="Adição" />
+                        <MenuItem mnemonicParsing="false" onAction="#sub" text="Subtração" />
+                        <MenuItem mnemonicParsing="false" onAction="#mult" text="Multiplicação" />
+                        <MenuItem mnemonicParsing="false" onAction="#div" text="Divisão" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Lógicas">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#and" text="AND" />
+                        <MenuItem mnemonicParsing="false" onAction="#or" text="OR" />
+                        <MenuItem mnemonicParsing="false" onAction="#xor" text="XOR" />
+                    </items>
+                  </Menu>
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Transformações">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#rotate" text="Rotaçao" />
+                  <MenuItem mnemonicParsing="false" onAction="#scale" text="Escala" />
+                  <MenuItem mnemonicParsing="false" onAction="#translate" text="Translação" />
+                  <MenuItem mnemonicParsing="false" onAction="#reflect" text="Reflexão" />
+                  <MenuItem mnemonicParsing="false" onAction="#shear" text="Cisalhamento" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Pseudocolorização">
+              <items>
+                  <Menu mnemonicParsing="false" text="Pseudocor">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#pseudocolor1" text="Pseudocor 1" />
+                      <MenuItem mnemonicParsing="false" onAction="#pseudocolor2" text="Pseudocor 2" />
+                        <MenuItem mnemonicParsing="false" onAction="#pseudocolor3" text="Pseudocor 3" />
+                    </items>
+                  </Menu>
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Espaço de Cores">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#espacoRGB" text="RGB" />
+                  <MenuItem mnemonicParsing="false" onAction="#espacoHSB" text="HSB" />
+                  <MenuItem mnemonicParsing="false" onAction="#espacoCMYK" text="CMYK" />
+                  <MenuItem mnemonicParsing="false" onAction="#espacoYUV" text="YUV" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Realce">
+              <items>
+                  <Menu mnemonicParsing="false" text="Transformação Linear">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#realceNegativa" text="Negativa" />
+                      <MenuItem mnemonicParsing="false" onAction="#realceEscalaDeCinza" text="Escala de Cinza" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Transformação Não Linear">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#realceLogaritmo" text="Logaritmo" />
+                        <MenuItem mnemonicParsing="false" onAction="#realceRaizQuadrada" text="Raiz Quadrada" />
+                        <MenuItem mnemonicParsing="false" onAction="#realceExponencial" text="Exponencial" />
+                        <MenuItem mnemonicParsing="false" onAction="#realceQuadrado" text="Quadrado" />
+                    </items>
+                  </Menu>
+                  <MenuItem mnemonicParsing="false" onAction="#realceHistograma" text="Equalizar Histograma" />
+                  <MenuItem mnemonicParsing="false" onAction="#realceCorrecaoGama" text="Correção Gama" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Filtragem">
+              <items>
+                  <Menu mnemonicParsing="false" text="Passa Baixa">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#filtragemMedia3x3" text="Media 3x3" />
+                      <MenuItem mnemonicParsing="false" onAction="#filtragemMedia5x5" text="Media 5x5" />
+                        <MenuItem mnemonicParsing="false" onAction="#filtragemMediana3x3" text="Mediana 3x3" />
+                        <MenuItem mnemonicParsing="false" onAction="#filtragemMediana5x5" text="Mediana 5x5" />
+                        <MenuItem mnemonicParsing="false" onAction="#filtragemMin3x3" text="Mínimo" />
+                        <MenuItem mnemonicParsing="false" onAction="#filtragemMax3x3" text="Máximo" />
+                        <MenuItem mnemonicParsing="false" onAction="#filtragemModa" text="Moda" />
+                        <Menu mnemonicParsing="false" text="Com Preservaçãoo de Bordas">
+                          <items>
+                            <MenuItem mnemonicParsing="false" onAction="#filtragemKuwahara" text="Kuwahara" />
+                              <MenuItem mnemonicParsing="false" onAction="#notImplement" text="Tomita e Tsuji" />
+                              <MenuItem mnemonicParsing="false" onAction="#notImplement" text="Nagao e Matsuyama" />
+                              <MenuItem mnemonicParsing="false" onAction="#notImplement" text="Sombookaew" />
+                          </items>
+                        </Menu>
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Passa Alta">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#filtragemPassaAltaH1" text="H1" />
+                        <MenuItem mnemonicParsing="false" onAction="#filtragemPassaAltaH2" text="H2" />
+                        <MenuItem mnemonicParsing="false" onAction="#filtragemPassaAltaM1" text="M1" />
+                        <MenuItem mnemonicParsing="false" onAction="#filtragemPassaAltaM2" text="M2" />
+                        <MenuItem mnemonicParsing="false" onAction="#filtragemPassaAltaM3" text="M3" />
+                        <MenuItem mnemonicParsing="false" onAction="#filtragemPassaAltaHighBoost" text="High-Boost" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Meios-Tons">
+                    <items>
+                        <Menu mnemonicParsing="false" text="Pontilhado Ordenado">
+                           <items>
+                            <MenuItem mnemonicParsing="false" onAction="#filtragemMeiosTons2x2" text="2x2" />
+                              <MenuItem mnemonicParsing="false" onAction="#filtragemMeiosTons2x3" text="2x3" />
+                              <MenuItem mnemonicParsing="false" onAction="#filtragemMeiosTons3x3" text="3x3" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Pontilhado com Difusão">
+                          <items>
+                              <MenuItem mnemonicParsing="false" onAction="#filtragemMeiosTonsFloydSteinberg" text="Floyd-Steinberg" />
+                              <MenuItem mnemonicParsing="false" onAction="#notImplement" text="Rogers" />
+                              <MenuItem mnemonicParsing="false" onAction="#notImplement" text="Jarvis, Judice e Ninke" />
+                              <MenuItem mnemonicParsing="false" onAction="#notImplement" text="Stucki" />
+                              <MenuItem mnemonicParsing="false" onAction="#notImplement" text="Stevenson e Arce" />
+                          </items>
+                        </Menu>
+                    </items>
+                  </Menu>
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Segmentação">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#segmentacaoDetectacaoDePontos" text="Detectacao de Pontos" />
+                  <Menu mnemonicParsing="false" text="Detectaçao de Retas">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#segmentacaoDetectacaoDeRetasHorizontal" text="Horizontal" />
+                        <MenuItem mnemonicParsing="false" onAction="#segmentacaoDetectacaoDeRetas45" text="45º" />
+                        <MenuItem mnemonicParsing="false" onAction="#segmentacaoDetectacaoDeRetasVertical" text="Vertical" />
+                        <MenuItem mnemonicParsing="false" onAction="#segmentacaoDetectacaoDeRetas135" text="135º" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Detectaçao de Bordas">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#segmentacaoDetectacaoDeBordasRoberts" text="Roberts" />
+                        <MenuItem mnemonicParsing="false" onAction="#segmentacaoDetectacaoDeBordasRobertsCruzado" text="Roberts Cruzado" />
+                        <MenuItem mnemonicParsing="false" onAction="#segmentacaoDetectacaoDeBordasPrewiitGx" text="Prewiit Gx" />
+                        <MenuItem mnemonicParsing="false" onAction="#segmentacaoDetectacaoDeBordasPrewiitGy" text="Prewiit Gy" />
+                        <MenuItem mnemonicParsing="false" onAction="#segmentacaoDetectacaoDeBordasPrewiitGxGy" text="Prewiit" />
+                        <MenuItem mnemonicParsing="false" onAction="#segmentacaoDetectacaoDeBordasSobelGx" text="Sobel Gx" />
+                        <MenuItem mnemonicParsing="false" onAction="#segmentacaoDetectacaoDeBordasSobelGy" text="Sobel Gy" />
+                        <MenuItem mnemonicParsing="false" onAction="#segmentacaoDetectacaoDeBordasSobelGxGy" text="Sobel" />
+                        <MenuItem mnemonicParsing="false" onAction="#segmentacaoDetectacaoDeBordasLapracianoH1" text="Lapraciano H1" />
+                        <MenuItem mnemonicParsing="false" onAction="#segmentacaoDetectacaoDeBordasLapracianoH2" text="Lapraciano H2" />
+                        <MenuItem mnemonicParsing="false" onAction="#notImplement" text="Krish" />
+                        <MenuItem mnemonicParsing="false" onAction="#notImplement" text="Robison" />
+                        <MenuItem mnemonicParsing="false" onAction="#notImplement" text="Frey-Chen" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Limiarizaçao">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#limiarizarGlobal" text="Global" />
+                        <Menu mnemonicParsing="false" text="Local">
+                          <items>
+                            <MenuItem mnemonicParsing="false" onAction="#notImplement" text="Média" />
+                              <MenuItem mnemonicParsing="false" onAction="#notImplement" text="Máximo" />
+                              <MenuItem mnemonicParsing="false" onAction="#notImplement" text="Mínimo" />
+                              <MenuItem mnemonicParsing="false" onAction="#notImplement" text="Niblack" />
+                          </items>
+                        </Menu>
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Segmentaçao de Regiões">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#notImplement" text="Crescimento de Região" />
+                        <MenuItem mnemonicParsing="false" onAction="#notImplement" text="Algoritmo Watersheld" />
+                    </items>
+                  </Menu>
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <SplitPane dividerPositions="0.49740034662045063" layoutX="12.0" layoutY="120.0" prefHeight="160.0" prefWidth="579.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="26.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="294.0">
+               <children>
+                  <Label layoutX="14.0" prefHeight="17.0" prefWidth="270.0" text="Discente: Rodolfo Felipe Medeiros Alves " />
+                  <Pane fx:id="paneContent" layoutY="15.0" prefHeight="357.0" prefWidth="294.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label layoutX="2.0" layoutY="6.0" prefHeight="17.0" prefWidth="294.0" text=" Ciencia da Computação - Ufersa - Mossoró" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <StackPane fx:id="paneTransform" prefHeight="357.0" prefWidth="298.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
